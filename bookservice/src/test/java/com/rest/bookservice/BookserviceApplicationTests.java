@@ -45,12 +45,13 @@ class BookserviceApplicationTests {
 		Book book2 = new Book("5678","naveed","Potter",13.4);
 
 		given()
-				.contentType(ContentType.JSON)
 				.body(book2)
 				.when()
 				.post("/books")
 				.then()
-				.statusCode(201);
+				.statusCode(201)
+				.contentType(ContentType.JSON);
+
 	}
 
 	@Test
@@ -58,12 +59,12 @@ class BookserviceApplicationTests {
 		Book book2 = new Book("1234","naveed","New Title",13.4);
 
 		given()
-				.contentType(ContentType.JSON)
 				.body(book2)
 				.when()
 				.put("/books")
 				.then()
-				.statusCode(200);
+				.statusCode(200)
+				.contentType(ContentType.JSON);
 	}
 
 	@Test
@@ -71,12 +72,12 @@ class BookserviceApplicationTests {
 		Book book2 = new Book("57382","naveed","New Title",13.4);
 
 		given()
-				.contentType(ContentType.JSON)
 				.body(book2)
 				.when()
 				.put("/books")
 				.then()
-				.statusCode(404);
+				.statusCode(404)
+				.contentType(ContentType.JSON);
 	}
 
 	@Test
@@ -85,7 +86,8 @@ class BookserviceApplicationTests {
 				.when()
 				.delete("/books/5678")
 				.then()
-				.statusCode(200);
+				.statusCode(200)
+				.contentType(ContentType.JSON);
 	}
 
 }
